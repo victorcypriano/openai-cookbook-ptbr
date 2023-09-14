@@ -2,7 +2,7 @@
 
 ## Como funcionam os modelos LLM (large language models)
 
-[Modelos_LLM][Large language models Blog Post] são funções que mapeiam texto por texto. Dada uma sequência de entrada de texto, um modelo LLM prevê o texto que deve vir em seguida.
+[Modelos LLM][Large language models Blog Post] são funções que mapeiam texto por texto. Dada uma sequência de entrada de texto, um modelo LLM prevê o texto que deve vir em seguida.
 
 A magia dos modelos LLM é que, ao serem treinados para minimizar esse erro de previsão sobre grandes quantidades de texto, os modelos acabam aprendendo conceitos úteis para essas previsões. Por exemplo, eles aprendem:
 
@@ -19,136 +19,134 @@ Nenhum desses recursos é explicitamente programado – todos eles surgem como r
 
 O GPT-3 capacita [centenas de produtos de software][GPT3 Apps Blog Post], incluindo aplicativos de produtividade, aplicativos educacionais, jogos e entre outros, e com a chegada do GPT-4, [podemos ver ainda mais recursos][GPT4].
 
-<!---
-## How to control a large language model
+## Como controlar um modelo LLM
 
-Of all the inputs to a large language model, by far the most influential is the text prompt.
+De todoss os tipos de inputs para um modelo LLM, de longe a mais influente é o prompt de texto.
 
-Large language models can be prompted to produce output in a few ways:
+LLM podem ser direcionados a produzir saídas de algumas maneiras:
 
-* **Instruction**: Tell the model what you want
-* **Completion**: Induce the model to complete the beginning of what you want
-* **Demonstration**: Show the model what you want, with either:
-  * A few examples in the prompt
-  * Many hundreds or thousands of examples in a fine-tuning training dataset
+* **Instrução**: Dizer ao modelo o que você quer
+* **Completude**: Induzir o modelo a completar o início do que você deseja
+* **Demonstração**: Mostrar ao modelo o que você deseja, com:
+  * Alguns exemplos no prompt
+  * Centenas ou milhares de exemplos em um conjunto de dados de treinamento de ajuste fino
 
-An example of each is shown below.
+Um exemplo de cada um é mostrado abaixo.
 
-### Instruction prompts
+### Prompts de instrução
 
-Instruction-following models (e.g., `text-davinci-003` or any model beginning with `text-`) are specially designed to follow instructions. Write your instruction at the top of the prompt (or at the bottom, or both), and the model will do its best to follow the instruction and then stop. Instructions can be detailed, so don't be afraid to write a paragraph explicitly detailing the output you want.
+Instrução acompanhada de modelos (por exemplo, 'text-davinci-003' ou qualquer modelo que comece com 'text-') são especialmente projetados para seguir instruções. Escreva sua instrução no topo do prompt (ou na parte inferior, ou ambos), e o modelo fará o possível para seguir a instrução e, em seguida, parar. As instruções podem ser detalhadas, então não tenha medo de escrever um parágrafo detalhando explicitamente a saída desejada.
 
-Example instruction prompt:
+Exemplo de prompt de instrução:
 
 ```text
-Extract the name of the author from the quotation below.
+Extrair o nome do autor da citação abaixo.
 
-“Some humans theorize that intelligent species go extinct before they can expand into outer space. If they're correct, then the hush of the night sky is the silence of the graveyard.”
-― Ted Chiang, Exhalation
+“Alguns humanos teorizam que espécies inteligentes se extinguem antes de poderem se expandir para o espaço exterior. Se eles estiverem corretos, então o silêncio do céu noturno é o silêncio do cemitério.”
+― Ted Chiang, Exalação
 ```
 
-Output:
+Saída:
 
 ```text
 Ted Chiang
 ```
 
-### Completion prompt example
+### Exemplo de prompt de completude
 
-Completion-style prompts take advantage of how large language models try to write text they think is mostly likely to come next. To steer the model, try beginning a pattern or sentence that will be completed by the output you want to see. Relative to direct instructions, this mode of steering large language models can take more care and experimentation. In addition, the models won't necessarily know where to stop, so you will often need stop sequences or post-processing to cut off text generated beyond the desired output.
+Os prompts de estilo de completude aproveitam o fato de que os modelos LLM tentam escrever texto que eles consideram mais provável de vir a seguir. Para direcionar o modelo, tente começar um padrão ou frase que será completada pela saída que você deseja. Em relação às instruções diretas, esse modo de direcionar o modelo LLM pode exigir mais cuidado e experimentação. Além disso, os modelos não necessariamente saberão onde parar, então você frequentemente precisará de sequências de parada ou pós-processamento para interromper o texto gerado além da saída desejada.
 
-Example completion prompt:
+Exemplo de prompt de completude:
 
 ```text
-“Some humans theorize that intelligent species go extinct before they can expand into outer space. If they're correct, then the hush of the night sky is the silence of the graveyard.”
-― Ted Chiang, Exhalation
+“Alguns humanos teorizam que espécies inteligentes se extinguem antes de poderem se expandir para o espaço exterior. Se eles estiverem corretos, então o silêncio do céu noturno é o silêncio do cemitério.”
+― Ted Chiang, Exalação
 
-The author of this quote is
+O autor desta citação é
 ```
 
-Output:
+Saída:
 
 ```text
  Ted Chiang
 ```
 
-### Demonstration prompt example (few-shot learning)
+### Exemplo de prompt de demonstração (few-shot learning)
 
-Similar to completion-style prompts, demonstrations can show the model what you want it to do. This approach is sometimes called few-shot learning, as the model learns from a few examples provided in the prompt.
+Semelhante aos prompts de estilo de completude, as demonstrações podem mostrar ao modelo o que você deseja que ele faça. Essa abordagem é às vezes chamada de few-shot learning (aprendizado com poucos exemplos), pois o modelo aprende a partir de alguns exemplos fornecidos no prompt.
 
-Example demonstration prompt:
+Exemplo de prompt de demonstração:
 
 ```text
-Quote:
-“When the reasoning mind is forced to confront the impossible again and again, it has no choice but to adapt.”
-― N.K. Jemisin, The Fifth Season
-Author: N.K. Jemisin
+Citação:
+“Quando a mente racional é forçada a enfrentar o impossível repetidamente, não tem escolha senão se adaptar.”
+― N.K. Jemisin, A Quinta Estação
+Autor: N.K. Jemisin
 
-Quote:
-“Some humans theorize that intelligent species go extinct before they can expand into outer space. If they're correct, then the hush of the night sky is the silence of the graveyard.”
-― Ted Chiang, Exhalation
-Author:
+Citação:
+“Alguns humanos teorizam que espécies inteligentes se extinguem antes de poderem se expandir para o espaço exterior. Se eles estiverem corretos, então o silêncio do céu noturno é o silêncio do cemitério.”
+― Ted Chiang, Exalação
+Autor:
 ```
 
-Output:
+Saída:
 
 ```text
  Ted Chiang
 ```
 
-### Fine-tuned prompt example
+### Exemplo de prompt de ajuste fino (Fine-tuned)
 
-With enough training examples, you can [fine-tune][Fine Tuning Docs] a custom model. In this case, instructions become unnecessary, as the model can learn the task from the training data provided. However, it can be helpful to include separator sequences (e.g., `->` or `###` or any string that doesn't commonly appear in your inputs) to tell the model when the prompt has ended and the output should begin. Without separator sequences, there is a risk that the model continues elaborating on the input text rather than starting on the answer you want to see.
+Com exemplos de treinamento suficientes, você pode [fazer um ajuste fino][Documentacao de Ajuste Fino] num modelo personalizado. Nesse caso, as instruções se tornam desnecessárias, pois o modelo pode aprender a tarefa a partir dos dados de treinamento fornecidos. No entanto, pode ser útil incluir separadores (por exemplo, -> ou ### ou qualquer sequência de caracteres que não apareça comumente em suas entradas) para indicar ao modelo quando o prompt terminou e a saída deve começar. Sem os separadores, há o risco de o modelo continuar elaborando sobre o texto de entrada em vez de começar a responder o que você deseja ver.
 
-Example fine-tuned prompt (for a model that has been custom trained on similar prompt-completion pairs):
+Exemplo de prompt de ajuste fino (para um modelo que foi treinado personalizadamente em pares de completude de prompt semelhantes):
 
 ```text
-“Some humans theorize that intelligent species go extinct before they can expand into outer space. If they're correct, then the hush of the night sky is the silence of the graveyard.”
-― Ted Chiang, Exhalation
+“Alguns humanos teorizam que espécies inteligentes se extinguem antes de poderem se expandir para o espaço exterior. Se eles estiverem corretos, então o silêncio do céu noturno é o silêncio do cemitério.”
+― Ted Chiang, Exalação
 
 ###
 
 
 ```
 
-Output:
+Saída:
 
 ```text
  Ted Chiang
 ```
 
-## Code Capabilities
+## Capacidade de código
 
-Large language models aren't only great at text - they can be great at code too. OpenAI's specialized code model is called [Codex].
+Modelos LLM não são muito bons apenas para texto - eles também podem ser ótimos para código de programação. A OpenAI tem um modelo especializado em código chamado [Codex].
 
-Codex powers [more than 70 products][Codex Apps Blog Post], including:
+Codex alimenta atualmente [mais de 70 produtos][Postagem de Blog Codex Apps], incluindo:
 
-* [GitHub Copilot] (autocompletes code in VS Code and other IDEs)
-* [Pygma](https://pygma.app/) (turns Figma designs into code)
-* [Replit](https://replit.com/) (has an 'Explain code' button and other features)
-* [Warp](https://www.warp.dev/) (a smart terminal with AI command search)
-* [Machinet](https://machinet.net/) (writes Java unit test templates)
+* [GitHub Copilot] (completa automaticamente o código no VS Code e em outras IDEs)
+* [Pygma](https://pygma.app/) (transforma designs do Figma em código)
+* [Replit](https://replit.com/) (tem um botão 'Explicar código' e outras funcionalidades)
+* [Warp](https://www.warp.dev/) (um terminal inteligente com pesquisa de comandos de IA)
+* [Machinet](https://machinet.net/) (escreve modelos de teste de unidade em Java)
 
-Note that unlike instruction-following text models (e.g., `text-davinci-002`), Codex is *not* trained to follow instructions. As a result, designing good prompts can take more care.
+Observe que, ao contrário dos modelos de texto que seguem instruções (por exemplo, text-davinci-002), o Codex não é treinado para seguir instruções. Portanto, é preciso escrever bons prompts e exige mais cuidado.
 
-### More prompt advice
+### Mais conselhos sobre prompts
 
-For more prompt examples, visit [OpenAI Examples][OpenAI Examples].
+Para obter mais exemplos de prompts, visite [OpenAI Exemplos][OpenAI Exemplos].
 
-In general, the input prompt is the best lever for improving model outputs. You can try tricks like:
+Em geral, um bom prompt de entrada é a melhor forma de melhorar as saídas do modelo. Você pode experimentar truques como:
 
-* **Give more explicit instructions.** E.g., if you want the output to be a comma separated list, ask it to return a comma separated list. If you want it to say "I don't know" when it doesn't know the answer, tell it 'Say "I don't know" if you do not know the answer.'
-* **Supply better examples.** If you're demonstrating examples in your prompt, make sure that your examples are diverse and high quality.
-* **Ask the model to answer as if it was an expert.** Explicitly asking the model to produce high quality output or output as if it was written by an expert can induce the model to give higher quality answers that it thinks an expert would write. E.g., "The following answer is correct, high-quality, and written by an expert."
-* **Prompt the model to write down the series of steps explaining its reasoning.** E.g., prepend your answer with something like "[Let's think step by step](https://arxiv.org/pdf/2205.11916v1.pdf)." Prompting the model to give an explanation of its reasoning before its final answer can increase the likelihood that its final answer is consistent and correct.
+* **Dar instruções mais explícitas.** Por exemplo, se você deseja que a saída seja uma lista separada por vírgulas, peça para retornar uma lista separada por vírgulas. Se você quiser que ele diga "Eu não sei" quando não souber a resposta, diga 'Diga "Eu não sei" se você não souber a resposta.'
+* **Fornecer melhores exemplos.** Se você estiver demonstrando exemplos em seu prompt, certifique-se de que seus exemplos sejam diversos e de alta qualidade.
+* **Pedir ao modelo para responder como se fosse um especialista.** Pedir explicitamente ao modelo para produzir uma saída de alta qualidade ou uma saída como se fosse escrita por um especialista pode induzir o modelo a dar respostas de maior qualidade que ele considera que um especialista escreveria. Por exemplo, "A seguinte resposta está correta, de alta qualidade e escrita por um especialista."
+* **Pedir ao modelo para escrever os passos da série explicando seu raciocínio.** Por exemplo, inicie sua resposta com algo como "[Vamos pensar passo a passo](https://arxiv.org/pdf/2205.11916v1.pdf)." Pedir ao modelo para dar uma explicação de seu raciocínio antes de sua resposta final pode aumentar a probabilidade de que sua resposta final seja consistente e correta.
 
---->
 
-[Fine Tuning Docs]: https://beta.openai.com/docs/guides/fine-tuning
-[Codex Apps Blog Post]: https://openai.com/blog/codex-apps/
+[Documentacao de Ajuste Fino]: https://beta.openai.com/docs/guides/fine-tuning
+[Postagem de Blog Codex Apps]: https://openai.com/blog/codex-apps/
 [Large language models Blog Post]: https://openai.com/blog/better-language-models/
 [GitHub Copilot]: https://copilot.github.com/
 [Codex]: https://openai.com/blog/openai-codex/
 [GPT3 Apps Blog Post]: https://openai.com/blog/gpt-3-apps/
 [GPT4]: https://openai.com/gpt-4
-[OpenAI Examples]: https://beta.openai.com/examples
+[OpenAI Exemplos]: https://beta.openai.com/examples
