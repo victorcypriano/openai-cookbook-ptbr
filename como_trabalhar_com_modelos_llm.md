@@ -1,24 +1,25 @@
-# How to work with large language models
+# Como trabalhar com modelos LLM
 
-## How large language models work
+## Como funcionam os modelos LLM (large language models)
 
-[Large language models][Large language models Blog Post] are functions that map text to text. Given an input string of text, a large language model predicts the text that should come next.
+[Modelos_LLM][Large language models Blog Post] são funções que mapeiam texto por texto. Dada uma sequência de entrada de texto, um modelo LLM prevê o texto que deve vir em seguida.
 
-The magic of large language models is that by being trained to minimize this prediction error over vast quantities of text, the models end up learning concepts useful for these predictions. For example, they learn:
+A magia dos modelos LLM é que, ao serem treinados para minimizar esse erro de previsão sobre grandes quantidades de texto, os modelos acabam aprendendo conceitos úteis para essas previsões. Por exemplo, eles aprendem:
 
-* how to spell
-* how grammar works
-* how to paraphrase
-* how to answer questions
-* how to hold a conversation
-* how to write in many languages
-* how to code
+* como soletrar
+* como funciona a gramática
+* como parafrasear
+* como responder a perguntas
+* como manter uma conversa
+* como escrever em muitas línguas
+* como programar
 * etc.
 
-None of these capabilities are explicitly programmed in—they all emerge as a result of training.
+Nenhum desses recursos é explicitamente programado – todos eles surgem como resultado do treinamento.
 
-GPT-3 powers [hundreds of software products][GPT3 Apps Blog Post], including productivity apps, education apps, games, and more.
+O GPT-3 capacita [centenas de produtos de software][GPT3 Apps Blog Post], incluindo aplicativos de produtividade, aplicativos educacionais, jogos e entre outros, e com a chegada do GPT-4, [podemos ver ainda mais recursos][GPT4].
 
+<!---
 ## How to control a large language model
 
 Of all the inputs to a large language model, by far the most influential is the text prompt.
@@ -141,7 +142,7 @@ In general, the input prompt is the best lever for improving model outputs. You 
 * **Ask the model to answer as if it was an expert.** Explicitly asking the model to produce high quality output or output as if it was written by an expert can induce the model to give higher quality answers that it thinks an expert would write. E.g., "The following answer is correct, high-quality, and written by an expert."
 * **Prompt the model to write down the series of steps explaining its reasoning.** E.g., prepend your answer with something like "[Let's think step by step](https://arxiv.org/pdf/2205.11916v1.pdf)." Prompting the model to give an explanation of its reasoning before its final answer can increase the likelihood that its final answer is consistent and correct.
 
-
+--->
 
 [Fine Tuning Docs]: https://beta.openai.com/docs/guides/fine-tuning
 [Codex Apps Blog Post]: https://openai.com/blog/codex-apps/
@@ -149,4 +150,5 @@ In general, the input prompt is the best lever for improving model outputs. You 
 [GitHub Copilot]: https://copilot.github.com/
 [Codex]: https://openai.com/blog/openai-codex/
 [GPT3 Apps Blog Post]: https://openai.com/blog/gpt-3-apps/
+[GPT4]: https://openai.com/gpt-4
 [OpenAI Examples]: https://beta.openai.com/examples
