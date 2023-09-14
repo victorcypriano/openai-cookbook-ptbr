@@ -1,13 +1,27 @@
-# OpenAI Cookbook
+# OpenAI Primeiros Passos - Versão ptbr
 
-The OpenAI Cookbook shares example code for accomplishing common tasks with the [OpenAI API].
+Esse Repositório é uma tradução do Repositório [OpenAI Cookbook](https://github.com/openai/openai-cookbook/blob/main/README.md) e serve para facilitar a compreensão da utilização de ferramentas OpenAI.
 
-To run these examples, you'll need an OpenAI account and API key ([create a free account][api signup]).
+O OpenAI Primeiros Passos compartilha código de exemplo para realizar tarefas comuns com a [OpenAI API].
 
-Most code examples are written in Python, though the concepts can be applied in any language.
+Para executar esses exemplos, você precisará de uma conta OpenAI e uma chave de API ([Crie uma conta gratuitamente][api signup]).
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=468576060&machine=basicLinux32gb&location=EastUs)
+A maioria dos exemplos de código são escritos em Python, embora os conceitos possam ser aplicados em qualquer linguagem.
 
+[![Abra um Codespace no GitHub](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=468576060&machine=basicLinux32gb&location=EastUs)
+
+Obs.: Ainda estou trabalhando na tradução, então as coisas irão aparecendo conforme forem traduzidas.
+
+## Guias & exemplos
+
+- GPT
+  - [Guia: Como trabalhar com modelos LLM](como_trabalhar_com_modelos_llm.md)
+  - [Guia: Técnicas para melhorar a confiabilidade](tecnicas_para_melhorar_a_confiabilidade.md)
+- Incorporações
+  - [Exemplos de comparação de texto](exemplos_de_comparacao_de_texto.md)
+
+
+<!---
 ## Recently added/updated 🆕 ✨
 - [How to fine-tune chat models](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_finetune_chat_models.ipynb) [Aug 22, 2023]
 - [How to evaluate abstractive summarization](examples/evaluation/How_to_eval_abstractive_summarization.ipynb) [Aug 16, 2023]
@@ -25,10 +39,7 @@ Most code examples are written in Python, though the concepts can be applied in 
   - [How to format inputs to ChatGPT models](examples/How_to_format_inputs_to_ChatGPT_models.ipynb)
   - [How to stream completions](examples/How_to_stream_completions.ipynb)
   - [How to use a multi-step prompt to write unit tests](examples/Unit_test_writing_using_a_multi-step_prompt.ipynb)
-  - [Guide: How to work with large language models](how_to_work_with_large_language_models.md)
-  - [Guide: Techniques to improve reliability](techniques_to_improve_reliability.md)
 - Embeddings
-  - [Text comparison examples](text_comparison_examples.md)
   - [How to get embeddings](examples/Get_embeddings.ipynb)
   - [Question answering using embeddings](examples/Question_answering_using_embeddings.ipynb)
   - [Using vector databases for embeddings search](examples/vector_databases)
@@ -120,10 +131,13 @@ People are writing great tools and papers for improving outputs from GPT. Here a
 - [Reflexion: an autonomous agent with dynamic memory and self-reflection (2023)](https://arxiv.org/abs/2303.11366): Retrying tasks with memory of prior failures improves subsequent performance.
 - [Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP (2023)](https://arxiv.org/abs/2212.14024): Models augmented with knowledge via a "retrieve-then-read" can be improved with multi-hop chains of searches.
 - [Improving Factuality and Reasoning in Language Models through Multiagent Debate (2023)](https://arxiv.org/abs/2305.14325): Generating debates between a few ChatGPT agents over a few rounds improves scores on various benchmarks. Math word problem scores rise from 77% to 85%.
-
-## Contributing
-
-If there are examples or guides you'd like to see, feel free to suggest them on the [issues page]. We are also happy to accept high quality pull requests, as long as they fit the scope of the repo.
+--->
+  
+## Contribuições
+<!---
+Se houver exemplos ou guias que você gostaria de ver, sinta-se à vontade para sugeri-los na [página de sugestões]. Também estamos felizes em aceitar solicitações de pull de alta qualidade, desde que se encaixem no escopo do repositório.
+--->
+Se houver exemplos ou guias que você gostaria de compartilhar, sinta-se à vontade para sugeri-los na [página de sugestões], diretamente do repositório raiz.
 
 [chatgpt]: https://chat.openai.com/
 [openai api]: https://openai.com/api/
@@ -135,4 +149,7 @@ If there are examples or guides you'd like to see, feel free to suggest them on 
 [openai help center]: https://help.openai.com/en/
 [openai examples]: https://beta.openai.com/examples
 [openai blog]: https://openai.com/blog/
-[issues page]: https://github.com/openai/openai-cookbook/issues
+[página de sugestões]: https://github.com/openai/openai-cookbook/issues
+<!---
+[página de sugestões]: https://github.com/openai/openai-cookbook-ptbr/sugestoes
+--->
